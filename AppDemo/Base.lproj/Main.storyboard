@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="guE-ik-5bj">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -19,40 +19,53 @@
                                 <rect key="frame" x="10" y="160" width="394" height="692"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hotelCell" id="wAR-vG-Hya" customClass="HotelViewCell" customModule="AppDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hotelCell" rowHeight="100" id="wAR-vG-Hya" customClass="HotelViewCell" customModule="AppDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="394" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wAR-vG-Hya" id="N4j-0B-ZCm">
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HeL-9H-vXj">
-                                                    <rect key="frame" x="10" y="7.5" width="113" height="85"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HeL-9H-vXj">
+                                                    <rect key="frame" x="10" y="7.6666666666666643" width="113" height="85"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="HeL-9H-vXj" secondAttribute="height" multiplier="113:85" id="DkI-4t-oB3"/>
+                                                        <constraint firstAttribute="width" constant="113" id="Oab-VJ-Axq"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVA-w4-pQs">
-                                                    <rect key="frame" x="133" y="21" width="231" height="26.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVA-w4-pQs">
+                                                    <rect key="frame" x="133" y="21" width="231" height="18"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-2A-Fgz">
-                                                    <rect key="frame" x="133" y="53" width="231" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-2A-Fgz">
+                                                    <rect key="frame" x="133" y="44.666666666666664" width="231" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mVA-w4-pQs" firstAttribute="trailing" secondItem="Ot1-2A-Fgz" secondAttribute="trailing" id="2Wm-eE-GJw"/>
+                                                <constraint firstItem="mVA-w4-pQs" firstAttribute="leading" secondItem="Ot1-2A-Fgz" secondAttribute="leading" id="KCj-pp-JEk"/>
+                                                <constraint firstItem="HeL-9H-vXj" firstAttribute="centerY" secondItem="N4j-0B-ZCm" secondAttribute="centerY" id="LDd-zr-MfX"/>
+                                                <constraint firstItem="HeL-9H-vXj" firstAttribute="leading" secondItem="N4j-0B-ZCm" secondAttribute="leadingMargin" constant="-10" id="LgK-6z-Yk5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mVA-w4-pQs" secondAttribute="trailing" constant="10" id="ROw-3d-TxC"/>
+                                                <constraint firstItem="HeL-9H-vXj" firstAttribute="centerY" secondItem="N4j-0B-ZCm" secondAttribute="centerY" id="Uav-eS-YeC"/>
+                                                <constraint firstItem="mVA-w4-pQs" firstAttribute="leading" secondItem="HeL-9H-vXj" secondAttribute="trailing" constant="10" id="d7P-FV-btl"/>
+                                                <constraint firstItem="Ot1-2A-Fgz" firstAttribute="top" secondItem="mVA-w4-pQs" secondAttribute="bottom" constant="5.5" id="daM-m0-MiE"/>
+                                                <constraint firstItem="mVA-w4-pQs" firstAttribute="top" secondItem="N4j-0B-ZCm" secondAttribute="topMargin" constant="10" id="oeZ-nO-Kdr"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="hotelImageView" destination="HeL-9H-vXj" id="XFp-BK-yLi"/>
                                             <outlet property="hotelLocation" destination="Ot1-2A-Fgz" id="3g5-uU-CBy"/>
                                             <outlet property="hotelName" destination="mVA-w4-pQs" id="SRc-uq-xqC"/>
-                                            <outlet property="imageView" destination="HeL-9H-vXj" id="1CV-tH-mk9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="qqa-7l-mVk"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="mfK-W5-F4e"/>
@@ -74,6 +87,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="21c-ql-goL" firstAttribute="top" secondItem="hCh-bv-8Y6" secondAttribute="bottom" constant="10" id="11s-ju-f22"/>
+                            <constraint firstItem="vK1-g1-OGr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="72" id="3By-KR-Rqb"/>
                             <constraint firstItem="vK1-g1-OGr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="6cC-mT-kOe"/>
                             <constraint firstItem="vK1-g1-OGr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FIs-tr-j3s"/>
                             <constraint firstItem="vK1-g1-OGr" firstAttribute="top" secondItem="21c-ql-goL" secondAttribute="bottom" constant="10" id="NPZ-12-Sls"/>

@@ -14,10 +14,12 @@ import FBSDKLoginKit
 // Add this to the body
 class ViewController: UIViewController,LoginButtonDelegate {
     var hotelArray: Array<Any> = []
+    var allHotels:[Hotel] = []
 
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet weak var testUi: UIImageView!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var userName: UILabel!
     override func viewDidLoad() {
@@ -27,6 +29,8 @@ class ViewController: UIViewController,LoginButtonDelegate {
         loginButton.center = view.center
         view.addSubview(loginButton)
         getHotelDetails();
+//        tableView.delegate=self
+//        tableView.dataSource=self
         if let token = AccessToken.current,
             !token.isExpired {
             let token = token.tokenString
@@ -53,11 +57,12 @@ class ViewController: UIViewController,LoginButtonDelegate {
            
         }
         else{
-            loginButton.delegate=self
+//            loginButton.delegate=self
             loginButton.permissions = ["public_profile", "email"]
         }
        
     }
+    
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         let token = result?.token?.tokenString
@@ -87,11 +92,28 @@ class ViewController: UIViewController,LoginButtonDelegate {
             
             // Serialize the data into an object
             do {
+                
 //                let json = try JSONDecoder().decode([Hotel].self, from: data! )
                 let json=try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
 //                print(json)
                 self.hotelArray = (json?["data"] as! NSArray) as! Array<Any>
                 print("ASynchronous\(self.hotelArray)")
+                print("..........................................")
+//                print(self.hotelArray)
+                for anItem in self.hotelArray as! [Dictionary<String, AnyObject>] { // or [[String:AnyObject]]
+                  let address = anItem["address"] as! String
+                  let title = anItem["title"] as! String
+                  let images=anItem["image"]?["small"] as! String
+//                  print(images)
+                  let url = URL(string:  images)
+                  let data = try? Data(contentsOf: url!) 
+//                  self.testUi.image = UIImage(data: data!)
+                  let ID = anItem["id"] as! Int
+                  let description = anItem["description"] as! String
+                // do something with personName and personID
+                    let hotels = Hotel(hotelID: ID, image: UIImage(data: data!)!, title: title, address: address, description: description)
+                    self.allHotels.append(hotels)
+                }
                 
             } catch {
                 print("Error during JSON serialization: \(error.localizedDescription)")
@@ -102,20 +124,18 @@ class ViewController: UIViewController,LoginButtonDelegate {
     }
 }
 
-extension ViewController:UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-extension ViewController:UITableViewDataSource{
+extension ViewController:UITableViewDataSource,UITableViewDelegate{
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hotelArray.count
-    }
+    return allHotels.count
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let hotel = hotelArray[indexPath.row]
+    }
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var hotel = self.allHotels[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "hotelCell", for: indexPath) as! HotelViewCell
-        cell.configure(hotel: hotel as! Hotel)
+        cell.configure(hotel: hotel)
         return cell
     }
 
