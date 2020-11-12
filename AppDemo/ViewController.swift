@@ -109,10 +109,12 @@ class ViewController: UIViewController,LoginButtonDelegate {
                   let data = try? Data(contentsOf: url!) 
 //                  self.testUi.image = UIImage(data: data!)
                   let ID = anItem["id"] as! Int
+                  let x : Int = ID
+                var id = String(x)
                   let description = anItem["description"] as! String
-                // do something with personName and personID
-                    let hotels = Hotel(hotelID: ID, image: UIImage(data: data!)!, title: title, address: address, description: description)
+                    let hotels = Hotel(hotelID: ID, image: UIImage(named:id)!, title: title, address: address, description: description)
                     self.allHotels.append(hotels)
+                    
                 }
                 
             } catch {
@@ -125,9 +127,15 @@ class ViewController: UIViewController,LoginButtonDelegate {
 }
 
 extension ViewController:UITableViewDataSource,UITableViewDelegate{
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRow(at: indexPath, animated: true)
-//    }
+        performSegue(withIdentifier: "showDetails", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailViewController{
+            destination.hotelsDetails=self.allHotels[(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return allHotels.count
 
