@@ -10,15 +10,15 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController,MKMapViewDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
-      var hotelsMapDetails :Hotel?
+    var hotelsMapDetails :Hotel?
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         var keyLat:String = hotelsMapDetails!.latitude
         var keyLon:String = hotelsMapDetails!.longitude
-
+        
         let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         longPressRecogniser.minimumPressDuration = 0.5
         mapView.addGestureRecognizer(longPressRecogniser)

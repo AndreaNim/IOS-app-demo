@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet weak var detailImage: UIImageView!
     
     @IBOutlet weak var lblHotelTitle: UILabel!
@@ -18,8 +18,7 @@ class DetailViewController: UIViewController {
     var hotelsDetails :Hotel?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         let x : Int = (hotelsDetails?.hotelID)!
         var id = String(x)
         detailImage.image = UIImage(named:id)
@@ -28,7 +27,6 @@ class DetailViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showLocation"{
-            let x : Int = (hotelsDetails?.hotelID)!
             let destination = segue.destination as! MapViewController
             destination.hotelsMapDetails=self.hotelsDetails
             
@@ -36,15 +34,15 @@ class DetailViewController: UIViewController {
             
         }
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -63,7 +63,7 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yax-ds-REx">
-                                <rect key="frame" x="10" y="98" width="394" height="52"/>
+                                <rect key="frame" x="10" y="98" width="394" height="42"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-bv-8Y6">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="12"/>
@@ -78,7 +78,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NM8-vR-0Zh">
-                                        <rect key="frame" x="0.0" y="26" width="394" height="26"/>
+                                        <rect key="frame" x="0.0" y="26" width="394" height="16"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
@@ -87,12 +87,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yax-ds-REx" secondAttribute="trailing" constant="10" id="01F-eZ-MLi"/>
-                            <constraint firstItem="vK1-g1-OGr" firstAttribute="top" secondItem="yax-ds-REx" secondAttribute="bottom" constant="10" id="HOc-dw-Mvg"/>
                             <constraint firstItem="yax-ds-REx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="L1x-R5-0ig"/>
                             <constraint firstItem="vK1-g1-OGr" firstAttribute="leading" secondItem="yax-ds-REx" secondAttribute="leading" id="Pea-R5-WYv"/>
                             <constraint firstItem="vK1-g1-OGr" firstAttribute="trailing" secondItem="yax-ds-REx" secondAttribute="trailing" id="e8b-n5-rQQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vK1-g1-OGr" secondAttribute="bottom" constant="10" id="gkf-ta-TjY"/>
                             <constraint firstItem="yax-ds-REx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="oNn-a1-npg"/>
+                            <constraint firstItem="vK1-g1-OGr" firstAttribute="top" secondItem="yax-ds-REx" secondAttribute="bottom" constant="20" id="qPW-WB-fJi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -217,6 +217,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.81354177159999996" blue="0.16898429100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="barTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -373,7 +373,9 @@
 			baseConfigurationReference = CDEEC6D8EF7D111242467C79 /* Pods-AppDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35M3V8CA3X;
 				INFOPLIST_FILE = AppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,6 +383,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Andrea.AppDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -391,7 +394,9 @@
 			baseConfigurationReference = 3F244D4F187F9FB0004AE15D /* Pods-AppDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35M3V8CA3X;
 				INFOPLIST_FILE = AppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,6 +404,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Andrea.AppDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

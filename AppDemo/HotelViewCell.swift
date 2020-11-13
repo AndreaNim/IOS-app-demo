@@ -9,9 +9,9 @@
 import UIKit
 
 class HotelViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var hotelImageView: UIImageView!
-
+    
     @IBOutlet weak var hotelName: UILabel!
     
     @IBOutlet weak var hotelLocation: UILabel!
@@ -22,7 +22,7 @@ class HotelViewCell: UITableViewCell {
         hotelImageView.image=hotel.image
         hotelName.text = hotel.title
         hotelLocation.text = hotel.address
-
+        
     }
     //round viewimage
     func makeRounded() {
@@ -35,4 +35,4 @@ class HotelViewCell: UITableViewCell {
     }
     
 }
- 
+

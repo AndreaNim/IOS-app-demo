@@ -26,9 +26,9 @@ class Hotel{
         self.description=description
         self.latitude=latitude
         self.longitude=longitude
-       
+        
     }
     
     
 }
- 
+

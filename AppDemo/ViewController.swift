@@ -10,12 +10,12 @@
 // Swift
 
 import FBSDKLoginKit
+import UIKit
 
-// Add this to the body
 class ViewController: UIViewController,LoginButtonDelegate {
     var hotelArray: Array<Any> = []
     var allHotels:[Hotel] = []
-
+    
     
     @IBOutlet weak var btnlogoutView: UIView!
     
@@ -25,11 +25,12 @@ class ViewController: UIViewController,LoginButtonDelegate {
     @IBOutlet weak var userName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getHotelDetails();
         let loginButton = FBLoginButton()
+        //        loginButton.center = view.center
+        //        view.addSubview(loginButton)
         loginButton.center = btnlogoutView.center
         btnlogoutView.addSubview(loginButton)
-        getHotelDetails();
         //checking wether the user is signin or not
         if let token = AccessToken.current,
             !token.isExpired {
@@ -48,19 +49,20 @@ class ViewController: UIViewController,LoginButtonDelegate {
                     let name = data["name"] as! String
                     self.userName.text = name
                     let email = data["email"] as! String
-                     self.userEmail.text = email
-                }
-               
+                    self.userEmail.text = email
                     
+                }
+                
+                
             })
             
-           
+            
         }
         else{
-//            loginButton.delegate=self
+            loginButton.delegate=self
             loginButton.permissions = ["public_profile", "email"]
         }
-       
+        
     }
     
     
@@ -71,18 +73,18 @@ class ViewController: UIViewController,LoginButtonDelegate {
             print("\(result)")
         })
     }
-     
+    
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         
-    
+        
     }
     
     func getHotelDetails(){
         let session = URLSession.shared
         let url = URL(string: "https://dl.dropboxusercontent.com/s/6nt7fkdt7ck0lue/hotels.json")!
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
-        // Check the response
-//            print(response)
+            // Check the response
+            //            print(response)
             
             // Check if an error occured
             if error != nil {
@@ -94,26 +96,26 @@ class ViewController: UIViewController,LoginButtonDelegate {
             do {
                 
                 let json=try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-//                print(json)
+                //                print(json)
                 self.hotelArray = (json?["data"] as! NSArray) as! Array<Any>
                 print("ASynchronous\(self.hotelArray)")
                 print("..........................................")
-//                print(self.hotelArray)
+                //                print(self.hotelArray)
                 //iterating in hotelarray
                 for anItem in self.hotelArray as! [Dictionary<String, AnyObject>] {
                     //getting values
                     let address = anItem["address"] as! String
                     let title = anItem["title"] as! String
                     let images=anItem["image"]?["small"] as! String
-                      let longitude=anItem["longitude"] as! String
-                      let latitude=anItem["latitude"] as! String
-                      let url = URL(string:  images)
-                      let data = try? Data(contentsOf: url!) 
-    //                self.testUi.image = UIImage(data: data!)
-                      let ID = anItem["id"] as! Int
-                      let x : Int = ID
-                      var id = String(x)
-                  let description = anItem["description"] as! String
+                    let longitude=anItem["longitude"] as! String
+                    let latitude=anItem["latitude"] as! String
+                    let url = URL(string:  images)
+                    let data = try? Data(contentsOf: url!) 
+                    //                self.testUi.image = UIImage(data: data!)
+                    let ID = anItem["id"] as! Int
+                    let x : Int = ID
+                    var id = String(x)
+                    let description = anItem["description"] as! String
                     let hotels = Hotel(hotelID: ID, image: UIImage(named:id)!, title: title, address: address, description: description,latitude: latitude,longitude: longitude)
                     self.allHotels.append(hotels)
                     
@@ -139,16 +141,16 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate{
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return allHotels.count
-
+        return allHotels.count
+        
     }
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var hotel = self.allHotels[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "hotelCell", for: indexPath) as! HotelViewCell
         cell.configure(hotel: hotel)
         return cell
     }
-
+    
 }
 
-  
+
