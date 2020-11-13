@@ -18,8 +18,6 @@ The **demo app** has the capability to **login via Facebook** and A table view o
 
 ### Application Screens
 
-![firstScreenSet](Screenshot1.png)
+![firstScreenSet](screenshots.png)
 
-![firstScreenSet](Screenshot2.png)
 
-![firstScreenSet](Screenshot3.png)
