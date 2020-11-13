@@ -29,7 +29,8 @@ class HotelViewCell: UITableViewCell {
         hotelImageView.contentMode = UIView.ContentMode.scaleAspectFill
         hotelImageView.layer.masksToBounds = false
         hotelImageView.layer.borderColor = UIColor.white.cgColor
-        hotelImageView.layer.cornerRadius = hotelImageView.frame.height/2 //This will change with corners of image and height/2 will make this circle shape
+        //This will change with corners of image and height/2 will make this circle shape
+        hotelImageView.layer.cornerRadius = hotelImageView.frame.height/2
         hotelImageView.clipsToBounds = true
     }
     

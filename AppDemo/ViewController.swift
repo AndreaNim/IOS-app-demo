@@ -17,6 +17,8 @@ class ViewController: UIViewController,LoginButtonDelegate {
     var allHotels:[Hotel] = []
 
     
+    @IBOutlet weak var btnlogoutView: UIView!
+    
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet weak var userEmail: UILabel!
@@ -25,8 +27,8 @@ class ViewController: UIViewController,LoginButtonDelegate {
         super.viewDidLoad()
         
         let loginButton = FBLoginButton()
-        loginButton.center = view.center
-        view.addSubview(loginButton)
+        loginButton.center = btnlogoutView.center
+        btnlogoutView.addSubview(loginButton)
         getHotelDetails();
         //checking wether the user is signin or not
         if let token = AccessToken.current,
