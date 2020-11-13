@@ -19,18 +19,16 @@ class ViewController: UIViewController,LoginButtonDelegate {
     
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet weak var testUi: UIImageView!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var userName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //checking wether the user is signin or not
+        
         let loginButton = FBLoginButton()
         loginButton.center = view.center
         view.addSubview(loginButton)
         getHotelDetails();
-//        tableView.delegate=self
-//        tableView.dataSource=self
+        //checking wether the user is signin or not
         if let token = AccessToken.current,
             !token.isExpired {
             let token = token.tokenString
@@ -76,16 +74,16 @@ class ViewController: UIViewController,LoginButtonDelegate {
         
     
     }
+    
     func getHotelDetails(){
         let session = URLSession.shared
         let url = URL(string: "https://dl.dropboxusercontent.com/s/6nt7fkdt7ck0lue/hotels.json")!
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
-            // Check the response
+        // Check the response
 //            print(response)
             
             // Check if an error occured
             if error != nil {
-                // HERE you can manage the error
                 print(error)
                 return
             }
@@ -93,26 +91,26 @@ class ViewController: UIViewController,LoginButtonDelegate {
             // Serialize the data into an object
             do {
                 
-//                let json = try JSONDecoder().decode([Hotel].self, from: data! )
                 let json=try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
 //                print(json)
                 self.hotelArray = (json?["data"] as! NSArray) as! Array<Any>
                 print("ASynchronous\(self.hotelArray)")
                 print("..........................................")
 //                print(self.hotelArray)
-                for anItem in self.hotelArray as! [Dictionary<String, AnyObject>] { // or [[String:AnyObject]]
-                  let address = anItem["address"] as! String
-                  let title = anItem["title"] as! String
-                  let images=anItem["image"]?["small"] as! String
-                  let longitude=anItem["longitude"] as! String
-                  let latitude=anItem["latitude"] as! String
-//                  print(images)
-                  let url = URL(string:  images)
-                  let data = try? Data(contentsOf: url!) 
-//                  self.testUi.image = UIImage(data: data!)
-                  let ID = anItem["id"] as! Int
-                  let x : Int = ID
-                  var id = String(x)
+                //iterating in hotelarray
+                for anItem in self.hotelArray as! [Dictionary<String, AnyObject>] {
+                    //getting values
+                    let address = anItem["address"] as! String
+                    let title = anItem["title"] as! String
+                    let images=anItem["image"]?["small"] as! String
+                      let longitude=anItem["longitude"] as! String
+                      let latitude=anItem["latitude"] as! String
+                      let url = URL(string:  images)
+                      let data = try? Data(contentsOf: url!) 
+    //                self.testUi.image = UIImage(data: data!)
+                      let ID = anItem["id"] as! Int
+                      let x : Int = ID
+                      var id = String(x)
                   let description = anItem["description"] as! String
                     let hotels = Hotel(hotelID: ID, image: UIImage(named:id)!, title: title, address: address, description: description,latitude: latitude,longitude: longitude)
                     self.allHotels.append(hotels)
@@ -130,7 +128,7 @@ class ViewController: UIViewController,LoginButtonDelegate {
 
 extension ViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
+        //segue for show detail view
         performSegue(withIdentifier: "showDetails", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
