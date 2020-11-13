@@ -104,15 +104,17 @@ class ViewController: UIViewController,LoginButtonDelegate {
                   let address = anItem["address"] as! String
                   let title = anItem["title"] as! String
                   let images=anItem["image"]?["small"] as! String
+                  let longitude=anItem["longitude"] as! String
+                  let latitude=anItem["latitude"] as! String
 //                  print(images)
                   let url = URL(string:  images)
                   let data = try? Data(contentsOf: url!) 
 //                  self.testUi.image = UIImage(data: data!)
                   let ID = anItem["id"] as! Int
                   let x : Int = ID
-                var id = String(x)
+                  var id = String(x)
                   let description = anItem["description"] as! String
-                    let hotels = Hotel(hotelID: ID, image: UIImage(named:id)!, title: title, address: address, description: description)
+                    let hotels = Hotel(hotelID: ID, image: UIImage(named:id)!, title: title, address: address, description: description,latitude: latitude,longitude: longitude)
                     self.allHotels.append(hotels)
                     
                 }

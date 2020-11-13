@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53B00B83255DC0D000D668BE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B00B82255DC0D000D668BE /* DetailViewController.swift */; };
+		53B00B89255DDA0800D668BE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B00B88255DDA0800D668BE /* MapViewController.swift */; };
 		53E59EE0255CE495000D098D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E59EDF255CE495000D098D /* AppDelegate.swift */; };
 		53E59EE2255CE495000D098D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E59EE1255CE495000D098D /* SceneDelegate.swift */; };
 		53E59EE4255CE495000D098D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E59EE3255CE495000D098D /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		3F244D4F187F9FB0004AE15D /* Pods-AppDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDemo.release.xcconfig"; path = "Target Support Files/Pods-AppDemo/Pods-AppDemo.release.xcconfig"; sourceTree = "<group>"; };
 		53B00B82255DC0D000D668BE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		53B00B88255DDA0800D668BE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		53E59EDC255CE495000D098D /* AppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E59EDF255CE495000D098D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53E59EE1255CE495000D098D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				53E59EF8255D131E000D098D /* HotelViewCell.swift */,
 				53E59EFB255D1745000D098D /* Hotel.swift */,
 				53B00B82255DC0D000D668BE /* DetailViewController.swift */,
+				53B00B88255DDA0800D668BE /* MapViewController.swift */,
 				53E59EE5255CE495000D098D /* Main.storyboard */,
 				53E59EEB255CE499000D098D /* Assets.xcassets */,
 				53E59EED255CE499000D098D /* LaunchScreen.storyboard */,
@@ -225,6 +228,7 @@
 				53E59EF9255D131E000D098D /* HotelViewCell.swift in Sources */,
 				53E59EE2255CE495000D098D /* SceneDelegate.swift in Sources */,
 				53B00B83255DC0D000D668BE /* DetailViewController.swift in Sources */,
+				53B00B89255DDA0800D668BE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

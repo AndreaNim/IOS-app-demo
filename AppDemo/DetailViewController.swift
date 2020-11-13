@@ -26,7 +26,16 @@ class DetailViewController: UIViewController {
         lblHotelTitle.text="\((hotelsDetails?.title)!)"
         lblHotelDetails.text="\((hotelsDetails?.description)!)"
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showLocation"{
+            let x : Int = (hotelsDetails?.hotelID)!
+            let destination = segue.destination as! MapViewController
+            destination.hotelsMapDetails=self.hotelsDetails
+            
+            
+            
+        }
+    }
 
     /*
     // MARK: - Navigation

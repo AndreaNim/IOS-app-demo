@@ -162,7 +162,12 @@
                         <viewLayoutGuide key="safeArea" id="E7p-WE-KOU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="LSn-V4-Phu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Thj-4C-Rkc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Thj-4C-Rkc">
+                            <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="Tch-IW-Wtb" kind="show" identifier="showLocation" id="c8l-Cg-J6p"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailImage" destination="IgB-15-Ht9" id="Ltv-6Y-OE3"/>
@@ -174,6 +179,36 @@
             </objects>
             <point key="canvasLocation" x="1771.0144927536232" y="-3.3482142857142856"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="1lq-sw-nHW">
+            <objects>
+                <viewController id="Tch-IW-Wtb" customClass="MapViewController" customModule="AppDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qei-xu-UM2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Nu6-Bm-LqJ">
+                                <rect key="frame" x="10" y="98" width="394" height="754"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uhX-gY-qLX" firstAttribute="bottom" secondItem="Nu6-Bm-LqJ" secondAttribute="bottom" constant="10" id="6o1-Xm-H4t"/>
+                            <constraint firstItem="Nu6-Bm-LqJ" firstAttribute="top" secondItem="uhX-gY-qLX" secondAttribute="top" constant="10" id="9tO-To-G5m"/>
+                            <constraint firstItem="uhX-gY-qLX" firstAttribute="trailing" secondItem="Nu6-Bm-LqJ" secondAttribute="trailing" constant="10" id="g7U-Yb-xLr"/>
+                            <constraint firstItem="Nu6-Bm-LqJ" firstAttribute="leading" secondItem="uhX-gY-qLX" secondAttribute="leading" constant="10" id="vbk-Rs-xFR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uhX-gY-qLX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="GrW-XA-JNv"/>
+                    <connections>
+                        <outlet property="mapView" destination="Nu6-Bm-LqJ" id="a9g-KW-CrJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAo-xQ-UuR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2671" y="52"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cG4-tz-vZg">
             <objects>
@@ -182,8 +217,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mbH-Zg-a0A">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.92157477139999999" green="0.92155748609999999" blue="0.92156922819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.81354177162602737" blue="0.16898429101917811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

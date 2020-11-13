@@ -15,13 +15,17 @@ class Hotel{
     var title : String
     var address : String
     var description:String
+    var latitude: String
+    var longitude:String
     
-    init(hotelID:Int,image : UIImage,title : String,address : String,description:String) {
+    init(hotelID:Int,image : UIImage,title : String,address : String,description:String,latitude:String,longitude:String) {
         self.hotelID=hotelID
         self.image=image
         self.title=title
         self.address=address
         self.description=description
+        self.latitude=latitude
+        self.longitude=longitude
        
     }
     
